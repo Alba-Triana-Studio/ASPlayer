@@ -121,6 +121,12 @@ class Controller:
                             self.ui_root.left_panel.device_spinner.text = val
                             break
 
+        # Restore channel count spinner
+        if hasattr(self.ui_root.left_panel, 'channel_spinner'):
+            channels = [n for n in self.graph.nodes.values() if n.type == NodeType.CHANNEL]
+            if channels:
+                self.ui_root.left_panel.channel_spinner.text = str(len(channels))
+
         self.refresh_ui()
 
     def _check_auto_start_triggers(self):
@@ -231,8 +237,17 @@ class Controller:
                     self.audio_engine.set_output_device(found_index)
                     # Update spinner if UI is ready
                     if self.ui_root and hasattr(self.ui_root.left_panel, 'device_spinner'):
-                        self.ui_root.left_panel.device_spinner.text = f"{device_name} ({found_index})"
+                        suffix = f"({found_index})"
+                        for val in self.ui_root.left_panel.device_spinner.values:
+                            if val.endswith(suffix):
+                                self.ui_root.left_panel.device_spinner.text = val
+                                break
             
+            # Sync Channel Spinner
+            channels = [n for n in self.graph.nodes.values() if n.type == NodeType.CHANNEL]
+            if self.ui_root and hasattr(self.ui_root.left_panel, 'channel_spinner'):
+                self.ui_root.left_panel.channel_spinner.text = str(len(channels))
+
             # Reconnect property change callbacks for all nodes
             for node in self.graph.nodes.values():
                 node.on_property_change = self.audio_engine.update_property

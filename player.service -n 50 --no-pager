@@ -1,0 +1,4 @@
+○ asplayer.service - ASPlayer
+     Loaded: loaded (]8;;file://ASPlayer/etc/systemd/system/asplayer.service\/etc/systemd/system/asplayer.service]8;;\; [0;1;38:5:185mdisabled[0m; preset: [0;1;32menabled[0m)
+     Active: inactive (dead)
+        Job: 7699

@@ -1,0 +1,18 @@
+[Unit]
+Description=ASPlayer
+After=graphical.target sound.target display-manager.service
+Wants=graphical.target display-manager.service
+
+[Service]
+Type=simple
+User=asplayer
+WorkingDirectory=/home/asplayer/Documents/ASPlayer
+ExecStart=/home/asplayer/Documents/ASPlayer/run_rpi.sh
+Restart=on-failure
+RestartSec=2
+Environment=PYTHONUNBUFFERED=1
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/asplayer/.Xauthority
+
+[Install]
+WantedBy=graphical.target

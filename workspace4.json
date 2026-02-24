@@ -80,19 +80,19 @@
     ],
     "connections": [
         {
-            "id": "87dfbe4b-7d21-4f83-b46a-b20158ba65e0",
+            "id": "b27caeba-716b-4b28-9faf-a01a5b09dc4c",
             "from_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
             "to_node_id": "f9f449dc-8681-437e-958c-289e10d622ef",
             "label": "Connection"
         },
         {
-            "id": "1425fa9f-6e5f-41c1-a7e4-0b8500ab6e53",
+            "id": "18c1a813-7a66-486e-a2a3-45f8ec16c3ee",
             "from_node_id": "94f512cf-b698-4420-8ddb-e8599aeb2bee",
             "to_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
             "label": "Connection"
         },
         {
-            "id": "18c2d3a9-5323-447a-98d5-5d2aebbf28f7",
+            "id": "8851747f-6de3-47b1-9818-9bee3f32733e",
             "from_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
             "to_node_id": "6e903f88-f05e-4d7f-b732-e21ca94e7c16",
             "label": "Connection"

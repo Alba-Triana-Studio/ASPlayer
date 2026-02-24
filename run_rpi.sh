@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /home/asplayer/Documents/ASPlayer
 export DISPLAY=:0
 export KIVY_BCM_DISPMANX_ID=0
 export KIVY_WINDOW=sdl2

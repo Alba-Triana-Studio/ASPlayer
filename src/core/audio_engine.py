@@ -165,14 +165,32 @@ class AudioEngine:
             if device_idx is None and hasattr(self, '_pending_device_index'):
                 device_idx = self._pending_device_index
 
-            channels = 2
+            required_channels = 2
+            if self.graph:
+                for node in self.graph.nodes.values():
+                    if node.type == NodeType.CHANNEL:
+                        try:
+                            channel_index = int(node.get_property("channel_index", 1))
+                        except (TypeError, ValueError):
+                            channel_index = 1
+                        if channel_index > required_channels:
+                            required_channels = channel_index
+
+            device_max_channels = None
             if device_idx is not None:
                 dev_info = sd.query_devices(device_idx)
-                channels = dev_info['max_output_channels']
+                device_max_channels = dev_info.get('max_output_channels')
             else:
-                # Query default output device info for channel count
                 device_info = self.get_default_output_device_info()
-                channels = device_info.get('max_output_channels', 2)
+                device_max_channels = device_info.get('max_output_channels')
+
+            if device_max_channels:
+                channels = min(required_channels, device_max_channels)
+            else:
+                channels = required_channels
+
+            if channels < 1:
+                channels = 1
 
             self.stream = sd.OutputStream(
                 samplerate=self.sample_rate,

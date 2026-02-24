@@ -1,40 +1,48 @@
 {
-    "id": "7158c72a-5fc6-4faf-acdf-e233a9a16e2a",
+    "id": "5a9fdb1f-b5e3-4b67-920f-beb9cee12e04",
     "label": "Workspace",
+    "settings": {
+        "audio_device": "ICUSBAUDIO7D: USB Audio (hw:2,0)"
+    },
     "nodes": [
         {
-            "id": "dc358aad-cc65-4644-8203-16b5934d354c",
+            "id": "f9f449dc-8681-437e-958c-289e10d622ef",
             "type": "channel",
             "label": "Output 1",
             "properties": {
                 "hardware_device": "default",
                 "channel_mapping": "stereo",
                 "volume": 1.0,
-                "channel_index": 1
+                "channel_index": 1,
+                "source_channel_index": 1
             },
             "position": [
                 350,
-                150
+                250
             ]
         },
         {
-            "id": "c38997ce-66c8-4e8e-8b6c-902a480d3252",
+            "id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
             "type": "source",
             "label": "Source",
             "properties": {
-                "source_type": "wave",
+                "source_type": "file",
                 "wave_type": "sine",
-                "frequency": 350.0,
+                "frequency": 440,
                 "duration_mode": "infinite",
                 "duration": 1.0,
                 "interval": 1.0,
-                "file_path": "",
+                "file_path": "/home/asplayer/Documents/sound.wav",
                 "start_time": 0.0,
-                "end_time": 0.0,
+                "end_time": 204.355918,
                 "loop": false,
                 "loop_count": 0,
                 "padding_before": 0.0,
-                "padding_after": 0.0
+                "padding_after": 0.0,
+                "channels": 4,
+                "sample_rate": 44100,
+                "file_duration": 3060.188798,
+                "playback_mode": "Loop"
             },
             "position": [
                 200,
@@ -42,30 +50,96 @@
             ]
         },
         {
-            "id": "584c27d1-56a4-43b2-89be-174f11b9e1a4",
+            "id": "94f512cf-b698-4420-8ddb-e8599aeb2bee",
             "type": "trigger",
             "label": "Trigger",
             "properties": {
-                "trigger_type": "on_start",
+                "trigger_type": "open",
                 "manual_trigger": false
             },
             "position": [
                 50,
                 150
             ]
+        },
+        {
+            "id": "6e903f88-f05e-4d7f-b732-e21ca94e7c16",
+            "type": "channel",
+            "label": "Output 2",
+            "properties": {
+                "hardware_device": "default",
+                "channel_mapping": "stereo",
+                "source_channel_index": 2,
+                "volume": 1.0,
+                "channel_index": 2
+            },
+            "position": [
+                350,
+                190
+            ]
+        },
+        {
+            "id": "879e6f8b-1abc-46de-aa5e-2d2907b079a1",
+            "type": "channel",
+            "label": "Output 3",
+            "properties": {
+                "hardware_device": "default",
+                "channel_mapping": "stereo",
+                "source_channel_index": 3,
+                "volume": 1.0,
+                "channel_index": 3
+            },
+            "position": [
+                350,
+                130
+            ]
+        },
+        {
+            "id": "f0c5616b-8aef-4807-970c-3a5849192ece",
+            "type": "channel",
+            "label": "Output 4",
+            "properties": {
+                "hardware_device": "default",
+                "channel_mapping": "stereo",
+                "source_channel_index": 4,
+                "volume": 1.0,
+                "channel_index": 4
+            },
+            "position": [
+                350,
+                70
+            ]
         }
     ],
     "connections": [
         {
-            "id": "70517bc6-3e7c-4c2f-8f2a-586d94dae098",
-            "from_node_id": "c38997ce-66c8-4e8e-8b6c-902a480d3252",
-            "to_node_id": "dc358aad-cc65-4644-8203-16b5934d354c",
+            "id": "7e101a6e-8f1e-43b4-9a3c-2d8cea4e06fc",
+            "from_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
+            "to_node_id": "f9f449dc-8681-437e-958c-289e10d622ef",
             "label": "Connection"
         },
         {
-            "id": "50fcac38-7de4-4d5b-85b7-21a41c7eed92",
-            "from_node_id": "584c27d1-56a4-43b2-89be-174f11b9e1a4",
-            "to_node_id": "c38997ce-66c8-4e8e-8b6c-902a480d3252",
+            "id": "5b3859f3-824d-48a8-98c2-0f93077d6f89",
+            "from_node_id": "94f512cf-b698-4420-8ddb-e8599aeb2bee",
+            "to_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
+            "label": "Connection"
+        },
+        {
+            "id": "8f87665b-571a-44b3-9ae6-bbcb2f88132c",
+            "from_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
+            "to_node_id": "6e903f88-f05e-4d7f-b732-e21ca94e7c16",
+            "label": "Connection"
+        },
+        {
+            "id": "bd048b98-cb96-447d-abae-d98c8dbae24c",
+            "from_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
+            "to_node_id": "879e6f8b-1abc-46de-aa5e-2d2907b079a1",
+            "label": "Connection"
+        },
+        {
+            "id": "970cf9f0-c4dd-40af-aa54-b185ffee7acd",
+            "from_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
+            "to_node_id": "f0c5616b-8aef-4807-970c-3a5849192ece",
             "label": "Connection"
         }
     ]
