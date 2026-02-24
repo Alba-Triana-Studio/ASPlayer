@@ -1,0 +1,75 @@
+{
+    "id": "5a9fdb1f-b5e3-4b67-920f-beb9cee12e04",
+    "label": "Workspace",
+    "settings": {
+        "audio_device": "ICUSBAUDIO7D: USB Audio (hw:3,0)"
+    },
+    "nodes": [
+        {
+            "id": "f9f449dc-8681-437e-958c-289e10d622ef",
+            "type": "channel",
+            "label": "Output 1",
+            "properties": {
+                "hardware_device": "default",
+                "channel_mapping": "stereo",
+                "volume": 1.0,
+                "channel_index": 1
+            },
+            "position": [
+                350,
+                150
+            ]
+        },
+        {
+            "id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
+            "type": "source",
+            "label": "Source",
+            "properties": {
+                "source_type": "wave",
+                "wave_type": "sine",
+                "frequency": 440,
+                "duration_mode": "infinite",
+                "duration": 1.0,
+                "interval": 1.0,
+                "file_path": "",
+                "start_time": 0.0,
+                "end_time": 0.0,
+                "loop": false,
+                "loop_count": 0,
+                "padding_before": 0.0,
+                "padding_after": 0.0
+            },
+            "position": [
+                200,
+                150
+            ]
+        },
+        {
+            "id": "94f512cf-b698-4420-8ddb-e8599aeb2bee",
+            "type": "trigger",
+            "label": "Trigger",
+            "properties": {
+                "trigger_type": "on_start",
+                "manual_trigger": false
+            },
+            "position": [
+                50,
+                150
+            ]
+        }
+    ],
+    "connections": [
+        {
+            "id": "b990ef0f-c060-414c-a466-f0994c94b980",
+            "from_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
+            "to_node_id": "f9f449dc-8681-437e-958c-289e10d622ef",
+            "label": "Connection"
+        },
+        {
+            "id": "aae5388d-ec2f-4e30-8450-329a607db74f",
+            "from_node_id": "94f512cf-b698-4420-8ddb-e8599aeb2bee",
+            "to_node_id": "b7939938-a7a4-45d3-a2d4-090bf460ad80",
+            "label": "Connection"
+        }
+    ]
+}

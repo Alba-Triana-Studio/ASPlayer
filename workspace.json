@@ -1,0 +1,72 @@
+{
+    "id": "7158c72a-5fc6-4faf-acdf-e233a9a16e2a",
+    "label": "Workspace",
+    "nodes": [
+        {
+            "id": "dc358aad-cc65-4644-8203-16b5934d354c",
+            "type": "channel",
+            "label": "Output 1",
+            "properties": {
+                "hardware_device": "default",
+                "channel_mapping": "stereo",
+                "volume": 1.0,
+                "channel_index": 1
+            },
+            "position": [
+                350,
+                150
+            ]
+        },
+        {
+            "id": "c38997ce-66c8-4e8e-8b6c-902a480d3252",
+            "type": "source",
+            "label": "Source",
+            "properties": {
+                "source_type": "wave",
+                "wave_type": "sine",
+                "frequency": 350.0,
+                "duration_mode": "infinite",
+                "duration": 1.0,
+                "interval": 1.0,
+                "file_path": "",
+                "start_time": 0.0,
+                "end_time": 0.0,
+                "loop": false,
+                "loop_count": 0,
+                "padding_before": 0.0,
+                "padding_after": 0.0
+            },
+            "position": [
+                200,
+                150
+            ]
+        },
+        {
+            "id": "584c27d1-56a4-43b2-89be-174f11b9e1a4",
+            "type": "trigger",
+            "label": "Trigger",
+            "properties": {
+                "trigger_type": "on_start",
+                "manual_trigger": false
+            },
+            "position": [
+                50,
+                150
+            ]
+        }
+    ],
+    "connections": [
+        {
+            "id": "70517bc6-3e7c-4c2f-8f2a-586d94dae098",
+            "from_node_id": "c38997ce-66c8-4e8e-8b6c-902a480d3252",
+            "to_node_id": "dc358aad-cc65-4644-8203-16b5934d354c",
+            "label": "Connection"
+        },
+        {
+            "id": "50fcac38-7de4-4d5b-85b7-21a41c7eed92",
+            "from_node_id": "584c27d1-56a4-43b2-89be-174f11b9e1a4",
+            "to_node_id": "c38997ce-66c8-4e8e-8b6c-902a480d3252",
+            "label": "Connection"
+        }
+    ]
+}
